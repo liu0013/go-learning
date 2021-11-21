@@ -65,7 +65,7 @@ func (m *MovingTimeWindow) debug() {
 		result[i] = r.Value.(int)
 		r = r.Next()
 	}
-	fmt.Println("print the whole window list: ", result)
+	fmt.Println("debug to print the whole window buckets: ", result)
 }
 
 func (m *MovingTimeWindow) Start() {
@@ -97,7 +97,7 @@ func main() {
 	for i := 0; i < 120; i++ {
 		time.Sleep(1 * time.Second)
 		rollingNumber.Add(1)
-		fmt.Println(rollingNumber.GetRollingSum())
+		fmt.Println("the time window sum: ", rollingNumber.GetRollingSum())
 	}
 	handleSignal(g, ctx)
 	if err := g.Wait(); err != nil {
